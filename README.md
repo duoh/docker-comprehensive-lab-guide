@@ -1,1 +1,1 @@
-# docker-conprehensive-workshop
+# docker-conprehensive-lab-guide
