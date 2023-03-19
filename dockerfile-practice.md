@@ -136,3 +136,4 @@ Test if the containerized nodejs is working
 ```
 Hello using dockerfile
 ```
+3. As you can observe the image size of sample-nodejs is up to 1GB, this is not suitable for production workload. In this step we are going to write a docker file adopted best practices from [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
