@@ -68,7 +68,7 @@ busybox       latest    7cfbbec8963d   2 days ago      4.86MB
 hello-world   latest    feb5d9fea6a5   18 months ago   13.3kB
 ```
 
-3. Let's now run a Docker container based on Busybox image by the following command.
+3. Let's run a Docker container based on Busybox image by the following command.
 ```sh
 docker run busybox echo "hello from busybox"
 ```
@@ -76,7 +76,7 @@ docker run busybox echo "hello from busybox"
 ```
 hello from busybox
 ```
-Run `run` command with `-it` flags to attach an interactive tty in the container
+Run the command with `-it` flags to attach an interactive tty in the container
 ```sh
 $ docker run -it busybox sh
 / # ls
