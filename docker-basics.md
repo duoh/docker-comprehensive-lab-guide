@@ -196,6 +196,10 @@ Then remove images on local
 ```sh
 docker rmi nginx:latest hello-world:latest busybox:latest
 ```
+Or use the following command to delete all images
+```sh
+docker image ls -aq | xargs docker rmi -f
+```
 Optionally, `docker image prune -a` can be used to acheive the same result
 ```sh
 docker image prune -a
