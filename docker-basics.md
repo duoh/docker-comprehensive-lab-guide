@@ -161,7 +161,7 @@ docker stop nginx && docker rm nginx
 ```
 
 6. Docker container can use [Volumes](https://docs.docker.com/storage/volumes/) to persist data. While bind mounts are dependent on the directory structure and OS of the host machine, volumes are completely managed by Docker.
-We are going to create `index.html` to replace the default page of nginx.
+We are going to create `index.html` on local to replace the default page of nginx.
 ```sh
 echo "<h1>Hello from the host index file</h1>" > /home/ec2-user/environment/index.html
 ```
