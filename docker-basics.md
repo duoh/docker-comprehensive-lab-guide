@@ -116,6 +116,7 @@ docker container prune
 docker run -d -p 8080:80 --name nginx nginx:latest
 ```
 >The above command contains additional options as follows:
+>
 >-d option is to run a container in backgroup.
 >
 >-p option is to publish a container port(80) to the host(8080).
@@ -128,10 +129,32 @@ Check if nginx is running by running
 ```sh
 curl http://localhost:8080
 ```
-Or clicking on Preview Running Application on Cloud9
+##### Result Output
+```
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
 
-[image]
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
 
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+```
 To stop the running nginx container and delete the container, run the following command
 ```sh
 docker stop nginx && docker rm nginx
