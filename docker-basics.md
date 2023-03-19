@@ -44,7 +44,7 @@ For more examples and ideas, visit:
 
 >In case you would like to install Docker engine on other platforms, please refer to the [official guide](https://docs.docker.com/engine/install/).
 
-2. While Docker containers are built using images, let's run the command docker pull to fetch [BusyBox image](https://hub.docker.com/_/busybox) from Docker Hub.
+2. Since Docker containers are built using images, let's run the command docker pull to fetch [BusyBox image](https://hub.docker.com/_/busybox) from Docker Hub.
 ```sh
 docker pull busybox
 ```
