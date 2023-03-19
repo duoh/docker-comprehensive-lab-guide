@@ -144,3 +144,30 @@ Run the following command to mount the index file from the host into the contain
 ```sh
 docker run -d -p 8080:80 -v /home/ec2-user/environment/index.html:/usr/share/nginx/html/index.html:ro --name nginx nginx:latest
 ```
+Verify if the result reflects from the previous change
+```sh
+curl http://localhost:8080
+```
+##### Result Output
+```
+<h1>Hello from the host index file</h1>
+```
+Let's clean up the first lab, stop and delete the current container.
+```sh
+docker stop nginx && docker rm nginx
+```
+List local images
+```sh
+docker image ls
+```
+##### Result Output
+```
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+busybox       latest    7cfbbec8963d   2 days ago      4.86MB
+nginx         latest    904b8cb13b93   2 weeks ago     142MB
+hello-world   latest    feb5d9fea6a5   18 months ago   13.3kB
+```
+Remove images on local
+```sh
+docker rmi nginx:latest hello-world:latest busybox:latest
+```
