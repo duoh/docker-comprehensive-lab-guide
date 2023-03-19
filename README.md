@@ -1,5 +1,5 @@
 # docker-conprehensive-lab-guide
-The guide comprises 3 sections. Beginning with Docker basics, this section is to recap how to install docker engine on given environments and how to use docker cli to manipulate container images and instances. The second part focuses on how to use a Dockerfile to create a production-grade container image. Typically, an application has more than one container images. The last topic show how Docker Compose can be used to manage multiple container instances.
+The guide comprises 3 sections. Beginning with Docker basics, this section is to recap how to install docker engine on a given environment and how to use Docker cli to manipulate container instances and images. The second part focuses on how to use a Dockerfile to create a production-grade container image. The last topic show how Docker Compose can be used to manage a mult-container application.
 
 1. Docker basics
 2. Dockerfile
