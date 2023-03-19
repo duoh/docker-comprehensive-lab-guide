@@ -128,12 +128,15 @@ REPOSITORY                           TAG       IMAGE ID       CREATED          S
 sample-nodejs                        latest    a8a07af3f729   21 seconds ago   1.01GB
 public.ecr.aws/docker/library/node   19.8      ac779c6d4c57   2 days ago       999MB
 ```
+
 Test if the containerized nodejs is working
 ```sh
- curl localhost:3000
+docker run -d -p 8080:3000 sample-nodejs
+curl localhost:8080
 ```
 ##### Result Output
 ```
 Hello using dockerfile
 ```
-3. As you can observe the image size of *sample-nodejs* is up to **1GB**, this is not suitable for production workload. In this step we are going to write a docker file adopted best practices from [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
+
+3. As you can observe the image size of *sample-nodejs* is up to **1GB**, this is not suitable for production workload. In this step we are going to write a docker file applied best practices from [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
