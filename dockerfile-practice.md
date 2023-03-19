@@ -62,7 +62,7 @@ CMD ["node", "index.js"]
 >
 >There are few more instructions that can be used in Dockerfile, please refer to [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
 
-2. Next we are going to build docker image using the dockerfile created in the previous step
+2. Next we are going to build container image using the dockerfile created in the previous step.
 ```sh
 docker build -t sample-nodejs .
 ```
