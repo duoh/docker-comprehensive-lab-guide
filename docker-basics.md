@@ -1,4 +1,4 @@
-In this step, you check if Docker is installed on the AWS Cloud9 workspace, and download and run a standard container image of busybox.
+In the first step, we check if Docker is installed on the AWS Cloud9 workspace, download and run a standard container image of busybox.
 
 1. Since Cloud9 already has docker engine installed, let's confirm if it is installed and working.
 ```sh
@@ -8,7 +8,7 @@ docker --version
 ```
 Docker version 20.10.17, build 100c701
 ```
-Pull hello-world image and run it as an instance
+Pull hello-world image and run it as a container instance
 ```sh
 docker run hello-world
 ```
@@ -42,9 +42,9 @@ For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 ```
 
-In case you would like to install Docker engine on other platforms, please refer to the [official guide](https://docs.docker.com/engine/install/).
+>In case you would like to install Docker engine on other platforms, please refer to the [official guide](https://docs.docker.com/engine/install/).
 
-2. Docker containers are built using images. Let's run the command docker pull to fetch [BusyBox image](https://hub.docker.com/_/busybox) from Docker Hub.
+2. While Docker containers are built using images, let's run the command docker pull to fetch [BusyBox image](https://hub.docker.com/_/busybox) from Docker Hub.
 ```sh
 docker pull busybox
 ```
@@ -68,7 +68,7 @@ busybox       latest    7cfbbec8963d   2 days ago      4.86MB
 hello-world   latest    feb5d9fea6a5   18 months ago   13.3kB
 ```
 
-3. Let's now run a Docker container based on Busybox image. To do that we are going to use the almighty docker run command.
+3. Let's now run a Docker container based on Busybox image by the following command.
 ```sh
 docker run busybox echo "hello from busybox"
 ```
@@ -96,7 +96,9 @@ CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS   
 0cc0275ba77c   busybox       "echo 'hello from bu…"   50 minutes ago   Exited (0) 50 minutes ago              optimistic_wing
 cc377cbe6163   hello-world   "/hello"                 3 hours ago      Exited (0) 3 hours ago                 relaxed_hoover
 ```
-Let's delete containers whose status is **exited**. Just copy the container IDs from *your recent output* and paste them alongside the following command.
+Let's delete containers whose status is **Exited**. Copy the container IDs from *your recent output* and paste them alongside the following command.
+
+Ex.
 ```sh
 docker rm 8c96a5104df9 0cc0275ba77c cc377cbe6163
 ```
@@ -152,11 +154,11 @@ curl http://localhost:8080
 ```
 <h1>Hello from the host index file</h1>
 ```
-Let's clean up the first lab, stop and delete the current container.
+Let's clean up the first lab by stopping and deleting local containers.
 ```sh
 docker stop nginx && docker rm nginx
 ```
-List local images
+Also delete local images by finding local images first
 ```sh
 docker image ls
 ```
@@ -167,7 +169,12 @@ busybox       latest    7cfbbec8963d   2 days ago      4.86MB
 nginx         latest    904b8cb13b93   2 weeks ago     142MB
 hello-world   latest    feb5d9fea6a5   18 months ago   13.3kB
 ```
-Remove images on local
+Then remove images on local
 ```sh
 docker rmi nginx:latest hello-world:latest busybox:latest
 ```
+Optionally, `docker image prune -a` can be used to acheive the same result
+```sh
+docker image prune -a
+```
+> -a option is to remove all unused images not just dangling ones.
