@@ -1,4 +1,4 @@
-In the first step, we check if Docker is installed on the AWS Cloud9 workspace, download and run a standard container image of busybox.
+The first step checks if Docker is installed on the AWS Cloud9 workspace, download and run a standard container image of busybox.
 
 1. Since Cloud9 already has docker engine installed, let's confirm if it is installed and working.
 ```sh
