@@ -52,7 +52,7 @@ CMD ["node", "index.js"]
 >
 >The next instruction is **WORKDIR** to set a working directory on a container.
 >
->**COPY** instruction is to copy specified files or directories to the container at target directory.
+>**COPY** instruction is to copy specified files or directories to the container at target path.
 >
 >**RUN** instruction is used to execute a command on a container in this case to install packages defined in package.json.
 >
@@ -60,7 +60,7 @@ CMD ["node", "index.js"]
 >
 >**CMD** instruction defines what command gets executed when running a container.
 >
->There are more instructions that can be used in Dockerfile, please refer to [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
+>There are few more instructions that can be used in Dockerfile, please refer to [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
 
 2. Next we are going to build docker image using the dockerfile created in the previous step
 ```sh
