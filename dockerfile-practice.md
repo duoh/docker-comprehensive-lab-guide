@@ -174,12 +174,15 @@ docker image ls
 ```
 ##### Result Output
 ```
-REPOSITORY                           TAG         IMAGE ID       CREATED              SIZE
-sample-nodejs-prod                   latest      3690888a2bba   53 seconds ago       255MB
-<none>                               <none>      ee1ee014a93b   About a minute ago   1.01GB
-public.ecr.aws/docker/library/node   19.8-slim   4cbcf0c0618a   3 days ago           249MB
-public.ecr.aws/docker/library/node   19.8        ac779c6d4c57   3 days ago           999MB
+REPOSITORY                           TAG         IMAGE ID       CREATED          SIZE
+sample-nodejs-prod                   latest      97a75a765809   2 seconds ago    255MB
+<none>                               <none>      7c24918169fc   19 seconds ago   1.01GB
+sample-nodejs                        latest      7da06b2e8498   53 seconds ago   1.01GB
+public.ecr.aws/docker/library/node   19.8-slim   4cbcf0c0618a   3 days ago       249MB
+public.ecr.aws/docker/library/node   19.8        ac779c6d4c57   3 days ago       999MB
 ```
+> You could see the size of `sample-nodejs-prod` is 4 times smaller than `sample-nodejs`
+
 Verify if the application is working
 ```sh
 docker run -d -p 8090:3000 sample-nodejs-prod
