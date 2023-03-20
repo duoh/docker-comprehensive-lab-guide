@@ -204,4 +204,11 @@ Clone repository onto Cloud9
 ```sh
 cd ~/environment
 git clone https://github.com/aws-samples/apprunner-hotel-app.git
+cd apprunner-hotel-app/
+touch Dockerfile
+```
+Open the newly created Dockerfile
+`Dockerfile`
+```
+
 ```
