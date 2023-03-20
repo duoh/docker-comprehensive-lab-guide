@@ -182,10 +182,22 @@ public.ecr.aws/docker/library/node   19.8        ac779c6d4c57   3 days ago      
 ```
 Verify if the application is working
 ```sh
-docker run -d -p 8080:3000 sample-nodejs-prod
-curl localhost:8080
+docker run -d -p 8090:3000 sample-nodejs-prod
+curl localhost:8090
 ```
 ##### Result Output
 ```
 Hello using dockerfile
+```
+Clean up all containers and images
+```sh
+docker stop $(docker ps -a -q -f status=running)
+docker container prune
+docker image prune -a
+```
+4. In this step we are going to use source from (apprunner-hotel-app repository)[https://github.com/aws-samples/apprunner-hotel-app] to build a container image for AWS App Runner workshop.
+Clone repository onto Cloud9
+```sh
+cd ~/environment
+git clone https://github.com/aws-samples/apprunner-hotel-app.git
 ```
