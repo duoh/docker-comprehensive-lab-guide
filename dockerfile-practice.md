@@ -139,4 +139,53 @@ curl localhost:8080
 Hello using dockerfile
 ```
 
-3. As you can observe the image size of *sample-nodejs* is up to **1GB**, this is not suitable for production workload. In this step we are going to write a docker file applied best practices from [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
+3. As you can observe the image size of *sample-nodejs* is up to **1.01GB**, this is not suitable for running on production. In this step we are going to write a docker file applied best practices from [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
+
+Let's create a dockerfile
+```sh
+cd ~/environment/sample-nodejs
+touch Dockerfile.prod
+```
+Open the newly created file
+```Dockerfile.prod```
+```sh
+FROM public.ecr.aws/docker/library/node:19.8 AS build
+WORKDIR /srv
+ADD package.json ./
+RUN npm install
+
+FROM public.ecr.aws/docker/library/node:19.8-slim
+RUN apt-get update && apt-get install -y \
+  curl \
+  --no-install-recommends \
+  && rm -rf /var/lib/apt/lists/* && apt-get clean
+COPY --from=build /srv .
+ADD . .
+EXPOSE 3000
+CMD ["node", "index.js"]
+```
+Run docker build with the specified file.
+```sh
+docker build -f Dockerfile.prod -t sample-nodejs-prod .
+```
+After built successfully, check if `sample-nodejs-prod/latest` image is created.
+```sh
+docker image ls
+```
+##### Result Output
+```
+REPOSITORY                           TAG         IMAGE ID       CREATED              SIZE
+sample-nodejs-prod                   latest      3690888a2bba   53 seconds ago       255MB
+<none>                               <none>      ee1ee014a93b   About a minute ago   1.01GB
+public.ecr.aws/docker/library/node   19.8-slim   4cbcf0c0618a   3 days ago           249MB
+public.ecr.aws/docker/library/node   19.8        ac779c6d4c57   3 days ago           999MB
+```
+Verify if the application is working
+```sh
+docker run -d -p 8080:3000 sample-nodejs-prod
+curl localhost:8080
+```
+##### Result Output
+```
+Hello using dockerfile
+```
