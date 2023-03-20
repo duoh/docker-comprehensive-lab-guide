@@ -181,7 +181,7 @@ sample-nodejs                        latest      7da06b2e8498   53 seconds ago  
 public.ecr.aws/docker/library/node   19.8-slim   4cbcf0c0618a   3 days ago       249MB
 public.ecr.aws/docker/library/node   19.8        ac779c6d4c57   3 days ago       999MB
 ```
-> You could see the size of `sample-nodejs-prod` is 4 times smaller than `sample-nodejs`
+> You could see the size of `sample-nodejs-prod` image is 4 times smaller than `sample-nodejs` one
 
 Verify if the application is working
 ```sh
@@ -199,6 +199,7 @@ docker container prune
 docker image prune -a
 ```
 4. In this step we are going to use source from (apprunner-hotel-app repository)[https://github.com/aws-samples/apprunner-hotel-app] to build a container image for AWS App Runner workshop.
+
 Clone repository onto Cloud9
 ```sh
 cd ~/environment
