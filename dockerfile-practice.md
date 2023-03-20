@@ -198,7 +198,7 @@ docker stop $(docker ps -a -q -f status=running)
 docker container prune
 docker image prune -a
 ```
-4. In this step we are going to use source from (apprunner-hotel-app repository)[https://github.com/aws-samples/apprunner-hotel-app] to build a container image for AWS App Runner workshop.
+4. In this step we are going to use source code from (apprunner-hotel-app repository)[https://github.com/aws-samples/apprunner-hotel-app] to build a container image and push it onto (Amazon ECR)[https://aws.amazon.com/ecr/] for further use.
 
 Clone repository onto Cloud9
 ```sh
@@ -210,5 +210,27 @@ touch Dockerfile
 Open the newly created Dockerfile
 `Dockerfile`
 ```
+FROM public.ecr.aws/docker/library/node:19.8
+WORKDIR /srv
+COPY . .
+RUN npm install
+EXPOSE 8080
+CMD ["npm", "start"]
+```
+Or use a lean version
+```
+FROM public.ecr.aws/docker/library/node:19.8 AS build
+WORKDIR /srv
+ADD package.json ./
+RUN npm install
 
+FROM public.ecr.aws/docker/library/node:19.8-slim
+RUN apt-get update && apt-get install -y \
+  curl \
+  --no-install-recommends \
+  && rm -rf /var/lib/apt/lists/* && apt-get clean
+COPY --from=build /srv .
+ADD . .
+EXPOSE 8080
+CMD ["npm", "start"]
 ```
