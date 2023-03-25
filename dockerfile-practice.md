@@ -171,12 +171,8 @@ CMD ["node", "index.js"]
 > The reason for using a multistage Dockerfile is often what we need at build (public.ecr.aws/docker/library/node:18) is not the same as what we need at runtime (public.ecr.aws/docker/library/node:19.8-slim).
 > 
 > It is a best practice to make your containers as small as possible and only include what you need the final runtime image.
-> 
-> The smaller the image, the smaller the attack service, the faster creation time, and the more portable your application becomes.
 >
 > From the second stage, it installs any security updates to the operating system and then cleans up after itself. (You can observe that commands following `&&` are executed at the same RUN instruction so that only one image layer is created.)
-> 
-> Then it copies `/src` folder from the first stage to the second image.
 
 Run docker build with the specified file.
 ```sh
