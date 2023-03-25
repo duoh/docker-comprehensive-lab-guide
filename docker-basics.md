@@ -5,7 +5,7 @@ The first step checks if Docker engine is installed on the AWS Cloud9 workspace,
 docker --version
 ```
 ##### Result Output
-```{.py3 .no-copy}
+```
 Docker version 20.10.17, build 100c701
 ```
 Pull hello-world image and run it as a container instance
