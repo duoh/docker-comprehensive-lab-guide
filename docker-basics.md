@@ -96,7 +96,7 @@ CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS   
 0cc0275ba77c   busybox       "echo 'hello from bu…"   50 minutes ago   Exited (0) 50 minutes ago              optimistic_wing
 cc377cbe6163   hello-world   "/hello"                 3 hours ago      Exited (0) 3 hours ago                 relaxed_hoover
 ```
-Let's delete containers whose status is **Exited**. Copy the container IDs from *your recent output* and paste them alongside the following command
+Let's delete containers in which status is **Exited**. Copy the container IDs from *your recent output* and paste them alongside the following command
 
 Ex.
 ```sh
