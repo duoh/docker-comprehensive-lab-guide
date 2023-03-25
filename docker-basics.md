@@ -111,7 +111,7 @@ Optionally, `docker container prune` can be used to acheive the same result
 docker container prune
 ```
 
-5. Typically a docker container is used to run as a long-running application like web application, reverse-proxy and etc. In this step we use nginx as a  static site.
+5. Typically a container is used to run as a long-running application like web application, reverse-proxy and etc. In this step we use nginx as a  static site.
 ```sh
 docker run -d -p 8080:80 --name nginx nginx:latest
 ```
