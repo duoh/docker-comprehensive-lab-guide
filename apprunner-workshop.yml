@@ -445,6 +445,7 @@ Outputs:
     Description: AWS Paramter Store value containing Hotel's name
     Value: !Sub arn:${AWS::Partition}:ssm:${AWS::Region}:${AWS::AccountId}:parameter/${HotelNameParam}
   Cloud9IDE:
+    Description: A url linking to a cloud9 IDE
     Value:
       Fn::Join:
       - ''
