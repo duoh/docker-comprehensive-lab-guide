@@ -268,17 +268,6 @@ Resources:
       IpProtocol: "-1"
       CidrIp: 0.0.0.0/0
 
-  #AppRunnerServiceConnector:
-  #  Type: AWS::AppRunner::VpcConnector
-  #  Properties: 
-  #    SecurityGroups: 
-      #   - !Ref AppRunnerServiceSecurityGroup
-      # Subnets: 
-      #   - !Ref PrivateSubnet1
-      #   - !Ref PrivateSubnet2
-      #   - !Ref PrivateSubnet3
-      # VpcConnectorName: AppRunnerHotelApp-RDS-Connector
-
   DBSubnetGroup:
     Type: 'AWS::RDS::DBSubnetGroup'
     Properties:
