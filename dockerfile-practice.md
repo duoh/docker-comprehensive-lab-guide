@@ -147,6 +147,7 @@ cd ~/environment/sample-nodejs
 touch Dockerfile.prod
 ```
 Open the newly created file
+
 ```Dockerfile.prod```
 ```sh
 FROM public.ecr.aws/docker/library/node:19.8 AS build
