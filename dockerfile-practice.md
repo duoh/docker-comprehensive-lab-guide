@@ -206,8 +206,8 @@ Hello using dockerfile
 Clean up all containers and images
 ```sh
 docker stop $(docker ps -a -q -f status=running)
-docker container prune
-docker image prune -a
+docker container prune -f
+docker image prune -af
 ```
 4. In this step we are going to use source code from [apprunner-hotel-app repository](https://github.com/aws-samples/apprunner-hotel-app) to build a container image for pushing it onto a container registry. We will push it onto [Amazon ECR](https://aws.amazon.com/ecr/) in the next section.
 
