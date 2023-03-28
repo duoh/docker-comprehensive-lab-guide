@@ -7,7 +7,7 @@ This workshop creates an AWS account. You will need the Participant Hash provide
 2. After signin, click on **AWS Console** to access AWS console
 [team-dashboard]
 
-3. Download [cloudformation file](https://raw.githubusercontent.com/duoh/docker-comprehensive-lab-guide/main/apprunner-workshop.yml?token=GHSAT0AAAAAAB4ZCU2VQEM6HNJB2LKZNFUCZBCZ7XQ) and save as `apprunner-workshop.yaml` on your laptop
+3. Navigate to https://github.com/duoh/docker-comprehensive-lab-guide and download `apprunner-workshop.yaml` onto your laptop
 
 4. Go to [CloudFormation](https://ap-southeast-1.console.aws.amazon.com/cloudformation/home) and click on **Create stack**
 [cloudformation-step1]
@@ -19,3 +19,16 @@ Click on **Choose file** and select the previous saved file, `apprunner-workshop
 
 6. Last step scroll down to bottom page and click all checkboxes then click **Next**
 [cloudformation-step4]
+
+7. Wait until it shows successfully as below
+[cloudformation-complete]
+
+8. The below arechitecture is AWS environment we are going used through this workshop.
+[aws-env-setup]
+
+9. Go to [Cloud9](https://ap-southeast-1.console.aws.amazon.com/cloud9control/home), you would see **apprunnerworkshop**.
+Click on **Open** to access Cloud9 IDE
+[cloud9-home]
+
+10. Close the Welcome page then press the green plus **+** button and select **New Terminal**
+[cloud9-ide]
