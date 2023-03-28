@@ -245,3 +245,19 @@ ADD . .
 EXPOSE 8080
 CMD ["npm", "start"]
 ```
+Run docker build with the newly created Dockerfile
+```sh
+docker build -t apprunner-hotel .
+```
+List if the container image is ready for pushing to a container registry (ECR)
+```
+docker image ls
+```
+##### Result Output
+```
+REPOSITORY                           TAG         IMAGE ID       CREATED              SIZE
+apprunner-hotel                      latest      7da4818a7175   About a minute ago   391MB
+<none>                               <none>      54791b3348e6   About a minute ago   1.18GB
+public.ecr.aws/docker/library/node   19.8-slim   9fd6db1a78c9   4 days ago           249MB
+public.ecr.aws/docker/library/node   19.8        0e0ab07dbedd   4 days ago           999MB
+```
