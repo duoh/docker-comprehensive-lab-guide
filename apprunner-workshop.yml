@@ -29,7 +29,6 @@
 #   * [RDS] Store username/password in Secrets Manager with rotation enabled
 #   * [App Runner] ECR Access Role (if using a public ECR image, you don't need this role, but creating it anyway)
 #   * [App Runner] SLR stand-in role (our public SLR policy hasn't been updated yet, so using this manually created role as a stand-in)
-#   * [App Runner] VPC Connector between App Runner service and RDS database
 
 Transform: AWS::SecretsManager-2020-07-23
 
@@ -425,8 +424,37 @@ Resources:
       Value: !Ref HotelName
       Description: App Runner Hotel Name
 
+  AWSCloud9SSMAccessRole:
+    Type: AWS::IAM::Role
+    Properties: 
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+              - cloud9.amazonaws.com
+              - ec2.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      Description: 'Service linked role for AWS Cloud9'
+      Path: '/service-role/'
+      ManagedPolicyArns: 
+        - arn:aws:iam::aws:policy/AWSCloud9SSMInstanceProfile
+      RoleName: 'AWSCloud9SSMAccessRole'
+
+  AWSCloud9SSMInstanceProfile:
+    Type: "AWS::IAM::InstanceProfile"
+    Properties: 
+      InstanceProfileName: AWSCloud9SSMInstanceProfile
+      Path: "/cloud9/"
+      Roles: 
+        - 
+          Ref: AWSCloud9SSMAccessRole
+
   C9Instance:
     Type: AWS::Cloud9::EnvironmentEC2
+    DependsOn: AWSCloud9SSMInstanceProfile
     Properties:
       Description: AWS Cloud9 instance for AWS App Runner workshop
       SubnetId: !Ref PrivateSubnet1
