@@ -464,7 +464,6 @@ Resources:
       AutomaticStopTimeMinutes: 300
       InstanceType: t3.medium
       Name: apprunnerworkshop
-      #OwnerArn: !Sub arn:${AWS::Partition}:sts::${AWS::AccountId}:assumed-role/TeamRole/MasterKey
 
 Outputs:
   VPC:
