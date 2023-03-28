@@ -467,6 +467,9 @@ Resources:
       #OwnerArn: !Sub arn:${AWS::Partition}:sts::${AWS::AccountId}:assumed-role/TeamRole/MasterKey
 
 Outputs:
+  VPC:
+    Description: A VPC running for app runner workshop
+    Value: !Ref AppRunnerHotelAppVPC
   DBSecret:
     Description: AWS Secrets Manager secret containing DB credentials
     Value: !Ref AuroraDBSecret
