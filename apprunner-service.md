@@ -116,6 +116,12 @@ Once the service is deployed, we can click on the "Default Domain" to explore ou
 
 ![assets](/assets/apprunner-deployed.png)
 
+## Deployed App Runner service
+
+Here's the architecture of our AWS Environment that we've created.
+
+![assets](/assets/final-architecture.jpeg)
+
 ## Explore the deployed hotel app
 
 Navigate to the hotel app.
