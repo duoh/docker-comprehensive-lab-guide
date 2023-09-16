@@ -1,3 +1,5 @@
+***Note*** This guide was re-hosted on https://catalog.us-east-1.prod.workshops.aws/workshops/613d57e0-6ae0-4fdc-bdb8-dac3930c2ec9/en-US  
+
 # Containers Zero to One Workshop
 <!--- # docker-conprehensive-lab-guide -->
 
